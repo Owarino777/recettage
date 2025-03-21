@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>PV de Recettage</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				font-size: 12px;
+			}
+			h1 {
+				text-align: center;
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				margin-top: 20px;
+			}
+			th,
+			td {
+				border: 1px solid black;
+				padding: 8px;
+				text-align: left;
+			}
+			th {
+				background-color: #f2f2f2;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>PV de Recettage</h1>
+		<p>
+			<strong>Date :</strong>
+			{{ pv.createdAt|date('d/m/Y H:i') }}</p>
+		<p>
+			<strong>Utilisateur :</strong>
+			{{ pv.user.email }}</p>
+		<p>
+			<strong>Test :</strong>
+			{{ pv.test.name }}</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Critère</th>
+					<th>Résultat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Conformité</td>
+					<td>✅ Valide</td>
+				</tr>
+				<tr>
+					<td>Tests réalisés</td>
+					<td>✔️ Réussis</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p style="margin-top: 40px; text-align: center;">
+			<strong>Signature Responsable :</strong>
+			______________________
+		</p>
+	</body>
+</html>

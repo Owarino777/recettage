@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Tests
+{% endblock %}
+
+{% block body %}
+	<div class="container mx-auto p-8">
+		<h1 class="text-3xl font-bold mb-6">Tableau de bord</h1>
+
+		<table class="table-auto w-full border-collapse border border-gray-200">
+			<thead class="bg-gray-100">
+				<tr>
+					<th class="p-3 text-left border">Nom</th>
+					<th class="p-3 text-left border">Statut</th>
+					<th class="p-3 text-left border">Créé le</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for test in tests %}
+					<tr class="border-b">
+						<td class="p-3">{{ test.name }}</td>
+						<td class="p-3">
+							{% if test.status == 'SUCCEEDED' %}
+								✅ Réussi
+							{% elseif test.status == 'FAILED' %}
+								❌ Échoué
+							{% else %}
+								⏳ En cours
+							{% endif %}
+						</td>
+						<td class="p-3">{{ test.createdAt|date('d/m/Y H:i') }}</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="3" class="p-4 text-center text-gray-500">Aucun test enregistré</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

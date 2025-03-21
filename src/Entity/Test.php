@@ -21,7 +21,7 @@ class Test
     private ?string $description = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $statuts = null;
+    private ?string $status = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
@@ -61,12 +61,12 @@ class Test
 
     public function getStatuts(): ?string
     {
-        return $this->statuts;
+        return $this->status;
     }
 
     public function setStatuts(string $statuts): static
     {
-        $this->statuts = $statuts;
+        $this->status = $statuts;
 
         return $this;
     }
